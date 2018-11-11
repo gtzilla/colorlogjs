@@ -10,6 +10,9 @@ This is not an identical copy of Timber for Java ported to JavaScript. It is a t
 
 ## Installation
 
+	yarn add https://github.com/gtzilla/timberjs
+
+	# when added to npm.
 	yarn add timberjs
 
 ### Usage
