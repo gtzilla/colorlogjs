@@ -1,0 +1,14 @@
+{
+  "name": "timberjs",
+  "version": "0.0.1",
+  "description": "A thin JavaScript logger",
+  "main": "timberjs.js",
+  "repository": "git@github.com:gtzilla/timberjs.git",
+  "author": "gtzilla <gregory.tomlinson@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "moment": "^2.22.2",
+    "underscore": "^1.9.1"
+  }
+}
