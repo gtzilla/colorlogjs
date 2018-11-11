@@ -1,6 +1,6 @@
 {
   "name": "timberjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A thin JavaScript logger",
   "main": "timberjs.js",
   "repository": "git@github.com:gtzilla/timberjs.git",

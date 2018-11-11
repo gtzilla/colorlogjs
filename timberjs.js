@@ -4,7 +4,8 @@
 
       const {timberjs} = require("./timberjs");
       const console = timberjs.plant(__filename);
-
+      
+      # to log
       console.log("My message")
       >  Nov 10 22:38:802 listen_pipe.js: My message
 
@@ -21,7 +22,6 @@ function logger() {
   if(_.indexOf(this.log_tag, "/") > -1) {
     _tag = _.last(this.log_tag.split("/"));  
   }
-  
   args.unshift(
     this.log_time_color + moment().format(this.log_time_format),
     this.log_tag_color + _tag+":",
