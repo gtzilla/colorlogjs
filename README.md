@@ -1,24 +1,24 @@
 
 
-# Timberjs
 
-Thin logging for NodeJS
 
-This is not an identical copy of Timber for Java ported to JavaScript. It is a thin log formatter that borrows some naming conventions from the Java Timber package. It strives to be simple. It welcomes your edit. Open a pull request.
+# Color Log JS (colorlogjs)
+
+Colors the color output, adds a few more crude items. This will probably break in your project. Send a fix. 
 
 
 
 ## Installation
 
-	yarn add https://github.com/gtzilla/timberjs
+	yarn add https://github.com/gtzilla/colorlogjs
 
 	# when added to npm.
-	yarn add timberjs
+	yarn add colorlogjs
 
 ### Usage
 
-      const {timberjs} = require("timberjs");
-      const console = timberjs.plant(__filename);
+      const {colorlogjs} = require("colorlogjs");
+      const console = colorlogjs.start(__filename);
 
       console.log("My message")
       >  Nov 10 22:38:802 listen_pipe.js: My message
@@ -27,8 +27,8 @@ This is not an identical copy of Timber for Java ported to JavaScript. It is a t
 
 ### Usage, Extended
 
-      const {timberjs} = require("timberjs");
-      const console = timberjs.plant(null, {
+      const {colorlogjs} = require("colorlogjs");
+      const console = colorlogjs.start(null, {
       	log_tag:__filename,
 
       	log_time_format:"LL HH:MM:SSS", // moment JS friendly
