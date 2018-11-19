@@ -4,8 +4,7 @@
 
 # Color Log JS (colorlogjs)
 
-Colors the color output, adds a few more crude items. This will probably break in your project. Send a fix. 
-
+Colors the output of `console.*` (log, error, info, debug, warn). IT also adds a few more items. This will probably break in your project. Send a fix. 
 
 
 ## Installation
@@ -21,7 +20,7 @@ Colors the color output, adds a few more crude items. This will probably break i
       const console = colorlogjs.start(__filename);
 
       console.log("My message")
-      >  Nov 10 22:38:802 listen_pipe.js: My message
+      >  Nov 18 23:14:077 command_ai.js:  {266.31757497787476} My message
 
 
 
@@ -37,4 +36,4 @@ Colors the color output, adds a few more crude items. This will probably break i
       });
 
       console.log("My message")
-      >  Nov 10 22:38:802 listen_pipe.js: My message
+      >  Nov 18 23:14:077 command_ai.js:  {266.31757497787476} My message
