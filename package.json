@@ -1,6 +1,6 @@
 {
   "name": "colorlogjs",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A JavaScript log / logging / logger. Improve console.*",
   "main": "colorlogjs.js",
   "repository": "git@github.com:gtzilla/colorlogjs.git",
