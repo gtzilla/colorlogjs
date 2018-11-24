@@ -1,13 +1,12 @@
 {
   "name": "colorlogjs",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A JavaScript log / logging / logger. Improve console.*",
   "main": "colorlogjs.js",
   "repository": "git@github.com:gtzilla/colorlogjs.git",
   "author": "gtzilla <gregory.tomlinson@gmail.com>",
   "license": "MIT",
-  "private": false,
-  "flat":true,
+  "flat": true,
   "dependencies": {
     "moment": "^2.22.2",
     "underscore": "^1.9.1"
