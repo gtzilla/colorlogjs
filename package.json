@@ -1,7 +1,7 @@
 {
   "name": "colorlogjs",
-  "version": "0.1.2",
-  "description": "A JavaScript log / logging / logger. Improve console.*",
+  "version": "0.2.3",
+  "description": "A JavaScript formatted date logger. Improve console.*. Adds formatted dates in color.",
   "main": "colorlogjs.js",
   "repository": "git@github.com:gtzilla/colorlogjs.git",
   "author": "gtzilla <gregory.tomlinson@gmail.com>",
