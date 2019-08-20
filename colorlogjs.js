@@ -13,6 +13,8 @@
       console.log("My message")
       >  Nov 18 23:14:077 command_ai.js:  {266.31757497787476} My message
 
+      
+      console.log('Tag Name', 'log statment');
 
       Cannot control process.stdout output, formatting or other.
       Only handles log level, log color, log tagging for `console.*`
@@ -58,7 +60,7 @@ function send_to_output(method, args) {
 
 function generic_log_caller(is_silent, log_lvl, _logger, local_var, orig_console_mthd) {
   return function() {
-    if(is_silent) { return; }
+    if(is_silent || this.hasOwnProperty('silent') && this.silent) { return; }
     if(this.log_level < log_lvl) { return; }
     _logger.call(local_var, orig_console_mthd, _.toArray(arguments));    
   }
@@ -66,9 +68,11 @@ function generic_log_caller(is_silent, log_lvl, _logger, local_var, orig_console
   
 }
 
+let is_silent;
 function start(tag, opts) {
   opts = opts || {}
   let localize = _.extend({},console);
+  is_silent = opts.is_silent;
   localize.log_tag = tag || opts.log_tag || __filename;
   localize.log_level = opts.log_level || 6; // 0 is NONE
   localize.log_tag_color = opts.log_tag_color || "\x1b[96m";
@@ -76,10 +80,12 @@ function start(tag, opts) {
   localize.log_time_color = opts.log_time_color || "\x1b[93m";
   localize.log_time_format = opts.log_time_format || "MMM DD HH:mm:SSS";
   localize.log_color_end = opts.log_color_end || "\x1b[0m";
-  let is_silent = opts.is_silent;
-
   // TODO..
-  if(opts.log_filepath) { /* writing to file / stream / other */ }
+  let wstream = null;
+  if(opts.log_filepath) { 
+    /* writing to file / stream / other */ 
+    wstream = fs.createWriteStream('./localized_output.log.txt');
+  }
   // short hand added. override others
   /**
     debug 6
@@ -95,20 +101,27 @@ function start(tag, opts) {
   localize.e = localize.error = generic_log_caller(is_silent, 2, logger, localize, orig_e);
   localize.l = localize.log = generic_log_caller(is_silent, 1, logger, localize, orig_l);
 
+  localize.set_debug = function(debug_lvl) {
+    this.log_level = parseInt(debug_lvl, 10);
+  }
+  localize.set_silent = manage_silence;
+
   return localize;
 }
 
 function manage_silence(bool) {
   is_silent = !!(bool);
+  if(is_silent) {
+    this.log_level = 0;  
+  }
+  this.silent = is_silent;
   return is_silent;
 }
 
 module.exports = {
   start:start,
-  set_silent:manage_silence,
   // deprecating
   colorlogjs:{
     start,
-    set_silent:manage_silence,
   },
 }
